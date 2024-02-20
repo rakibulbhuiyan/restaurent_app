@@ -27,28 +27,28 @@ class Menu:
     
     def add_menu_item(self,item_type,item):
         if item_type=='barger':
-            self.pizza.append(item)
+            self.barger.append(item)
         elif item_type=='pizza':
             self.pizza.append(item)
         elif item_type=='drinks':
-            self.pizza.append(item)
+            self.drinks.append(item)    
     def remove_pizza(self,pz):
         if pz in self.pizza:
             self.pizza.remove(pz)
 
     def show_menu(self):
-        print('#'*15)
-        for pizza in self.pizzas:
-            print(f'Name: {pizza.name} \nPrice: {pizza.price}')
-        print('*'*15)
+        print('..............Pizza..........')
+        for piz in self.pizza:
+            print(f'Name: {piz.name} \nPrice: {piz.price}\n')
+        print('..............Barger..........')
         print('\n')
-        for burger in self.burger:
-            print(f"name: {burger.name} \nPrice: {burger.price}")
-        print('*'*15)
+        for burger in self.barger:
+            print(f"name: {burger.name} \nPrice: {burger.price}\n")
+        print('..............Drinks..........')
         print('\n')
         for drinks in self.drinks:
-            print(f"Name: {drinks.name} ==== Price: {drinks.price}")
-        print('#'*15)
+            print(f"Name: {drinks.name} \nPrice: {drinks.price}\n")
+        print('..............The End..........')
 
     
 

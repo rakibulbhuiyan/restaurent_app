@@ -25,8 +25,8 @@ class Restaurant:
     # add order 
     def add_order(self,order):
         self.orders.append(order)
-
-    def paysalary(self,order,customer,amount):
+    # received payment from customer 
+    def recive_payment(self,order,customer,amount):
         if amount> order.bill:
             self.revenue +=order.bill
             self.balance +=order.bill
@@ -34,4 +34,36 @@ class Restaurant:
             return amount-order.bill
         else:
             print('Not enough money . Pay more...')
+    def pay_expense(self,amount,description):
+        if amount < self.balance:
+            self.expense +=amount
+            self.balance -=amount
+            print(f'Expenses {amount} for {description}')
+        
+        else:
+            print('Not enough money for pay {amount}')
+    # salary section...
+    def pay_salary(self,employee):
+        print(f'Paying Salary for {employee.name}, Salary: {employee.salary}')
+        if employee.salary < self.balance:
+            self.balance -= employee.salary
+            self.expense += employee.salary
+
+    def show_employees(self):
+        print("............Show Employee...........")
+        if self.chef is not None:
+            print(f'Chef: {self.chef.name} Salary: {self.chef.salary}')
+        print(".........................")
+
+        if self.server is not None:
+            print(f'Server: {self.server.name} Salary: {self.server.salary}')
+        print(".........................")
+        
+        if self.manager is not None:
+            print(f'Manager: {self.manager.name} Salary: {self.manager.salary}')
+        print(".........................")
             
+
+
+
+
